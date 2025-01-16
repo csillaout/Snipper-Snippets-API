@@ -66,6 +66,22 @@ def create_snippet(snippet: Snippet):
     
     return new_snippet
 
+#delete a snippet
+@app.delete("/snippets/{language}")
+def delete_snippets_by_language(language:str):
+    global snippets
+    #filter snippets by language and delete them 
+    snippets_to_delete = [snippet for snippet in snippets if snippet["language"].lower() == language.lower()]
+    if not snippets_to_delete:
+        raise HTTPException(status_code=404, detail="No snippet found")
+    snippets = [snippet for snippet in snippets if snippet["language"].lower()!= language.lower()]
+
+    # Save the updated snippets to the file
+    with open('seedData.json', 'w') as file:
+        json.dump(snippets, file, indent=4)
+    
+    return snippets_to_delete
+
 # Run the application
 if __name__ == "__main__":
     import uvicorn
