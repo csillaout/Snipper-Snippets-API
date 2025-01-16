@@ -1,6 +1,6 @@
 # FastAPI Snippet Manager
 
-This is a simple FastAPI application to manage code snippets. The application allows users to create, retrieve, and filter code snippets by language or ID.
+This is a simple FastAPI application to manage code snippets. The application allows users to create, retrieve, update, and delete code snippets by ID or language.
 
 ## Features
 
@@ -8,6 +8,8 @@ This is a simple FastAPI application to manage code snippets. The application al
 - Retrieve all snippets
 - Retrieve snippets by language
 - Retrieve a snippet by ID
+- Update a snippet by ID
+- Delete snippets by language
 
 ## Endpoints
 
@@ -16,6 +18,8 @@ This is a simple FastAPI application to manage code snippets. The application al
 - `GET /snippets/{language}`: Retrieve snippets by language.
 - `GET /snippet/{snippet_id}`: Retrieve a snippet by ID.
 - `POST /snippets/`: Create a new snippet.
+- `PUT /snippet/{snippet_id}`: Update a snippet by ID.
+- `DELETE /snippets/{language}`: Delete snippets by language.
 
 ## Prerequisites
 

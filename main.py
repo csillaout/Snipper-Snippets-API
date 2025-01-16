@@ -1,8 +1,9 @@
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import json
 from pydantic import BaseModel
-from typing import List
+from typing import Optional
 
 
 # Load initial data from seedData.json
@@ -26,6 +27,10 @@ class Snippet(BaseModel):
 
 class SnippetWithID(Snippet):
     id: int
+
+class UpdateSnippet(BaseModel):
+    language: Optional[str] = None
+    code: Optional[str] = None
 
 app = FastAPI()
 
@@ -81,6 +86,28 @@ def delete_snippets_by_language(language:str):
         json.dump(snippets, file, indent=4)
     
     return snippets_to_delete
+
+# update a snippet
+@app.put("/snippet/{snippet_id}", response_model=SnippetWithID)
+def update_snippet(snippet_id: int, snippet_update: UpdateSnippet):
+    # Find the snippet by its ID
+    snippet = next((snippet for snippet in snippets if snippet["id"] == snippet_id), None)
+    if snippet is None:
+        raise HTTPException(status_code=404, detail="Snippet not found")
+
+    # Update the snippet details
+    if snippet_update.language is not None:
+        snippet["language"] = snippet_update.language
+    if snippet_update.code is not None:
+        snippet["code"] = snippet_update.code
+    
+    # Save the updated snippets to the file
+    with open('seedData.json', 'w') as file:
+        json.dump(snippets, file, indent=4)
+    
+    return snippet
+
+
 
 # Run the application
 if __name__ == "__main__":
