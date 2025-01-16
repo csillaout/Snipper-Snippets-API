@@ -1,37 +1,22 @@
 [
-    {
-        "id": 2,
-        "language": "New Python",
-        "code": "gAAAAABniQ67QxQk9lHc7L-FNaHWj9TVnsFSRhyPwv_LJ2ZXoX9m1zBZfvYEHHYVbK7-gPFoUiYXRLubwsBJVaBBIoMZpEPfyg=="
-    },
-    {
-        "id": 3,
-        "language": "Python",
-        "code": "class Circle:\n    def __init__(self, radius):\n        self.radius = radius\n\n    def area(self):\n        return 3.14 * self.radius ** 2"
-    },
-    {
-        "id": 4,
-        "language": "JavaScript",
-        "code": "console.log('Hello, World!');"
-    },
-    {
-        "id": 5,
-        "language": "JavaScript",
-        "code": "function multiply(a, b) {\n    return a * b;\n}"
-    },
-    {
-        "id": 6,
-        "language": "JavaScript",
-        "code": "const square = num => num * num;"
-    },
-    {
-        "id": 7,
-        "language": "coded Python",
-        "code": "gAAAAABniQm9HaeL9_MqTHgrqEkByw4P8IVRYOVfv1ZOcewogWnalLRSpMI7NpZ26arqif4I8zYmHnrnaiMLnukXCwy1IQXwHpiQt-qnG9Pu72Bhu_0SPek="
-    },
-    {
-        "id": 8,
-        "language": "Hungarian",
-        "code": "gAAAAABniQ7Yt7aAqx1ZWB_eDKV_euYYQwwAZw778Q4IpamQMYKXxy9f1Ud_fUUJKMKydaXnKCSat16rNyjPF8WEBgm79VoMOUGjdU5TB19e0C0-ONRLCuM="
-    }
+  {
+    "id": 3,
+    "language": "Python",
+    "code": "class Circle:\n    def __init__(self, radius):\n        self.radius = radius\n\n    def area(self):\n        return 3.14 * self.radius ** 2"
+  },
+  {
+    "id": 4,
+    "language": "JavaScript",
+    "code": "console.log('Hello, World!');"
+  },
+  {
+    "id": 5,
+    "language": "JavaScript",
+    "code": "function multiply(a, b) {\n    return a * b;\n}"
+  },
+  {
+    "id": 6,
+    "language": "JavaScript",
+    "code": "const square = num => num * num;"
+  }
 ]
