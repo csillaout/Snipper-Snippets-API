@@ -1,12 +1,17 @@
-
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import json
 from pydantic import BaseModel
 from typing import Optional
+from cryptography.fernet import Fernet
+print("cryptography library is installed successfully!")
+
+# Generate a key for encryption and decryption
+# You should store this key securely and not regenerate it every time
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
 
 
-# Load initial data from seedData.json
 # Load initial data from seedData.json with error handling
 snippets = []
 try:
@@ -61,14 +66,32 @@ def get_snippet_by_id(snippet_id: int):
         raise HTTPException(status_code=404, detail="Snippet not found")
     return JSONResponse(content=snippet)
 
+# function to encrypt text
+def encrypt_text(text: str) -> str:
+    encrypted_text = cipher_suite.encrypt(text.encode())
+    return encrypted_text.decode()
+
+#function to decrypt text
+def decrypt_text(encrypted_text:str) -> str:
+    decrypted_text = cipher_suite.decrypt(encrypted_text.encode())
+    return decrypted_text.decode()
+
 # Post new snippet
 @app.post("/snippets/", response_model=SnippetWithID)
 def create_snippet(snippet: Snippet):
     # Generate the next available ID
     next_id = max(snippet["id"] for snippet in snippets) + 1 if snippets else 1
-    new_snippet = {"id": next_id, **snippet.dict()}
+
+    # encrypt the snippet's code
+    encrypted_code = encrypt_text(snippet.code)
+
+    new_snippet = {"id": next_id,  "language": snippet.language, 'code': encrypted_code}
     snippets.append(new_snippet)
     
+ # Save the newly created snippet to the file
+    with open('seedData.json', 'w') as file:
+        json.dump(snippets, file, indent=4)
+
     return new_snippet
 
 #delete a snippet

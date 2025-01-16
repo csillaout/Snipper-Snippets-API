@@ -1,13 +1,8 @@
 [
     {
-        "id": 1,
-        "language": "New Python",
-        "code": "print(Hello, Csilla!)"
-    },
-    {
         "id": 2,
-        "language": "Python",
-        "code": "def add(a, b):\n    return a + b"
+        "language": "New Python",
+        "code": "gAAAAABniQ67QxQk9lHc7L-FNaHWj9TVnsFSRhyPwv_LJ2ZXoX9m1zBZfvYEHHYVbK7-gPFoUiYXRLubwsBJVaBBIoMZpEPfyg=="
     },
     {
         "id": 3,
@@ -28,5 +23,15 @@
         "id": 6,
         "language": "JavaScript",
         "code": "const square = num => num * num;"
+    },
+    {
+        "id": 7,
+        "language": "coded Python",
+        "code": "gAAAAABniQm9HaeL9_MqTHgrqEkByw4P8IVRYOVfv1ZOcewogWnalLRSpMI7NpZ26arqif4I8zYmHnrnaiMLnukXCwy1IQXwHpiQt-qnG9Pu72Bhu_0SPek="
+    },
+    {
+        "id": 8,
+        "language": "Hungarian",
+        "code": "gAAAAABniQ7Yt7aAqx1ZWB_eDKV_euYYQwwAZw778Q4IpamQMYKXxy9f1Ud_fUUJKMKydaXnKCSat16rNyjPF8WEBgm79VoMOUGjdU5TB19e0C0-ONRLCuM="
     }
 ]
